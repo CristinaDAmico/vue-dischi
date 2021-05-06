@@ -49,8 +49,7 @@ export default {
 main {
     background-color: #1d2d3c;
     .albums {
-    height: 100vh;
-    max-width: 1200px;
+    padding: 50px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
