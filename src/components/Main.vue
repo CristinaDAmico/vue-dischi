@@ -1,11 +1,12 @@
 <template>
   <main>
+      <Select @changed="filteredGender" />
       <section v-if="!loading" class="albums">
-          <Album 
+        <Album 
             v-for="(album, index) in albums" 
             :key="index" 
             :info="album"
-            />
+        />
       </section>
       <Loader v-else />
   </main>
@@ -15,12 +16,14 @@
 import axios from 'axios';
 import Album from '@/components/Album.vue';
 import Loader from '@/components/Loader.vue';
+import Select from '@/components/Select.vue';
 
 export default {
     name: 'Main',
     components: { 
         Album,
-        Loader
+        Loader,
+        Select,
         },
         data() {
             return {
@@ -45,7 +48,11 @@ export default {
                     console.log('Error', err);
                 });
             },
+            filteredGender(select) {
+            this.genderSelected = select;
+            console.log(this.genderSelected);
         },
+    },
 };
 </script>
 
